@@ -10,7 +10,7 @@ public class AuthService {
 
     public String checkAuth(UserForm userForm) {
 
-        if (userForm.getName().equals("dataman") && userForm.getPassword().equals("bdytest1234")) {
+        if (userForm.getUser().equals("dataman") && userForm.getPassword().equals("bdytest1234")) {
             return "pass";
         } else {
             return "deny";

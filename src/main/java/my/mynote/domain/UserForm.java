@@ -2,15 +2,15 @@ package my.mynote.domain;
 
 public class UserForm {
 
-    private String name;
+    private String user;
     private String password;
 
-    public String getName() {
-        return this.name;
+    public String getUser() {
+        return this.user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getPassword() {
