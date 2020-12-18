@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xml:lang xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>
+            
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width-device-width, initial-scale-1.0"/>
+    </head>
+    <body>
+        <div style="border: 1px solid black;">  
+
+            <p>Hello, Welcome to myNote.</p>
+            <p>This is a new heaven for all busy writers.</p>
+            <form action="/check" method="POST" id="authform">
+                <table>
+                    <th colspan="2">User Authentication</th>
+                    <tr>
+                        <td>
+                            <label for="username">User</label>
+                        </td> 
+                        <td>
+                            <input type="text" id="name" name="name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Password : </label>
+                        </td> 
+                        <td>
+                            <input type="text" id="password" name="password">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <button type="submit" form="authform">Auth</button>
+            <span th:if="${check_result == 'deny'}">Please check your password</span>
+        </div>
+    </body>
+</html>
