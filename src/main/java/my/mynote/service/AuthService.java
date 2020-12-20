@@ -30,9 +30,6 @@ public class AuthService {
 
         User result = userRepository.findByUser(inputUser).get();
 
-        System.out.println(result.getUser());
-        System.out.println(result.getPassword());
-
         if (inputUser.equals(result.getUser()) && inputPassword.equals(result.getPassword())) {
             return "pass";
         } else {
