@@ -9,9 +9,12 @@
     <body>
 
         <p>Conguraturation of Pass!</p>
+        <p th:text="${username}"></p>
         <p>Click Next Button!</p>
-        <a href="/list">
+        <form action="/list" method="GET" id="throwUsername">
+            <input type="hidden" th:value="${username}" name="username">
+            <input type="hidden" value="" name="newtitle">
             <button type="submit">Next</button>
-        </a>
+        </form>
     </body>
 </html>

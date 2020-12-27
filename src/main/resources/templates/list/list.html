@@ -6,9 +6,57 @@
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width-device-width, initial-scale-1.0"/>
     </head>
+    <style>
+        div {
+            border: 1px solid red;
+        }
+    </style>
     <body>
+        <div>
+            <p>Hello, you are in List Section.</p>
+            <p th:text="${username}"></p>
+        </div>
 
-        <p>Hello, you are in List Section.</p>
-
+        <div style="width:100%; text-align: center;">
+            <div style="width: 300px">
+                <table>
+                    <tr>
+                        <th>newtitle</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form action="/list" method="GET" id="createcontent">
+                                <input type="text" name="newtitle">
+                                <input type="hidden" th:value="${username}" name="username">
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit", form= "createcontent">create</button>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="content : ${conts}">
+                        <td th:text="${content.username}"></td>
+                        <td th:text="${content.title}"></td>
+                        <td th:text="${content.body}"></td>
+                        <td>
+                            <form action="/list/content" method="GET">
+                                <input type="hidden" name="username" th:value="${content.username}">
+                                <input type="hidden" name="title" th:value="${content.title}">
+                                <input type="submit" value="open">
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </body>
 </html>
