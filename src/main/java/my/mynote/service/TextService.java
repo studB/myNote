@@ -47,4 +47,9 @@ public class TextService {
 
         return result;
     }
+
+    public int deleteC(Content content) {
+        int result = textRepository.deleteContent(content);
+        return result;
+    }
 }

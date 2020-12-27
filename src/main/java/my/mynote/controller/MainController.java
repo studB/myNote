@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.condition.ParamsRequestCondition;
 
 import my.mynote.domain.Content;
 import my.mynote.domain.ContentForm;
@@ -66,6 +67,16 @@ public class MainController {
         List<Content> conts = textService.getList(name);
         model.addAttribute("conts", conts);
         return "list/list";
+    }
+
+    @GetMapping("/list/delete")
+    public String deleteOne(@RequestParam("username") String username, @RequestParam("title") String title) {
+        Content content = new Content();
+        content.setTitle(title);
+        content.setUsername(username);
+        textService.deleteC(content);
+        String params = "username=" + content.getUsername() + "&newtitle=";
+        return "redirect:/list?" + params;
     }
 
     @GetMapping("/list/content")

@@ -16,4 +16,6 @@ public interface TextRepository {
     int create(Content content);
 
     int Updatebody(Content content);
+
+    int deleteContent(Content content);
 }

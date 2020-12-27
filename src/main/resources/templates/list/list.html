@@ -42,6 +42,7 @@
                         <th>Title</th>
                         <th>Body</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     <tr th:each="content : ${conts}">
                         <td th:text="${content.username}"></td>
@@ -52,6 +53,13 @@
                                 <input type="hidden" name="username" th:value="${content.username}">
                                 <input type="hidden" name="title" th:value="${content.title}">
                                 <input type="submit" value="open">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/list/delete" method="GET">
+                                <input type="hidden" name="username" th:value="${content.username}">
+                                <input type="hidden" name="title" th:value="${content.title}">
+                                <input type="submit" value="delete">
                             </form>
                         </td>
                     </tr>

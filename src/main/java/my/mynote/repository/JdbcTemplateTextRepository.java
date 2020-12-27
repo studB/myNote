@@ -82,4 +82,11 @@ public class JdbcTemplateTextRepository implements TextRepository {
 
         return 0;
     };
+
+    @Override
+    public int deleteContent(Content content) {
+        return jdbcTemplate.update("delete from content where (username, title) = (?,?)", content.getUsername(),
+                content.getTitle());
+
+    }
 }

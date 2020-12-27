@@ -40,4 +40,14 @@ public class JdbcTemplateTextRepositoryTest {
         Assertions.assertThat(textRepository.create(c)).isEqualTo(3);
     }
 
+    @Test
+    void deleteContentTest() {
+        Content c = new Content();
+        c.setTitle("title");
+        c.setUsername("testman");
+        System.out.println(textRepository.deleteContent(c));
+        Assertions.assertThat(textRepository.deleteContent(c)).isGreaterThan(0);
+
+    }
+
 }
