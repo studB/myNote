@@ -26,7 +26,14 @@ public class AuthService {
         String inputUser = userForm.getUser();
         String inputPassword = userForm.getPassword();
 
-        existedUserCheck(inputUser);
+        try {
+            existedUserCheck(inputUser);
+        } catch (IllegalStateException e) {
+            System.out.println(e.getMessage());
+            return "deny";
+        } finally {
+            System.out.println("End Inspection");
+        }
 
         User result = userRepository.findByUser(inputUser).get();
 
