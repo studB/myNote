@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import my.mynote.domain.User;
 
@@ -47,6 +48,11 @@ public class JdbcTemplateUserRepository implements UserRepository {
             }
         };
 
+    }
+
+    @Override
+    public int createUser(String user, String password) {
+        return jdbcTemplate.update("insert into auth (user, password) values (?,?)", user, password);
     }
 
 }

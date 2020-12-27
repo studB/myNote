@@ -10,4 +10,6 @@ public interface UserRepository {
 
     Optional<User> findByUser(String user);
 
+    int createUser(String user, String password);
+
 }

@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.condition.ParamsRequestCondition;
 
 import my.mynote.domain.Content;
 import my.mynote.domain.ContentForm;
@@ -54,6 +53,22 @@ public class MainController {
         model.addAttribute("check_result", "deny");
 
         return "home/home";
+    }
+
+    @GetMapping("/join")
+    public String joinpage() {
+        return "home/join";
+    }
+
+    @PostMapping("join")
+    public String joinUser(UserForm userForm) {
+        String result = authService.join(userForm);
+
+        if (result.equals("deny")) {
+            return "redirect:/join";
+        } else {
+            return "home/home";
+        }
     }
 
     @GetMapping("/list")

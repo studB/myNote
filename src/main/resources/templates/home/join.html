@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xml:lang xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>
+            
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width-device-width, initial-scale-1.0"/>
+    </head>
+    <body>
+        <div style="border: 1px solid black;">  
+            <p>Hi, You can be a our member!</p>
+            <p>Feel Free, join us!</p>
+            <form action="/join" method="POST" id="joinform">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="user">User :</label>
+                        </td>
+                        <td>
+                            <input type="text" name="user">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">password :</label>
+                        </td>
+                        <td>
+                            <input type="text" name="password">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <button type="submit" form="joinform">join</button>
+        </div>
+    </body>
+</html>

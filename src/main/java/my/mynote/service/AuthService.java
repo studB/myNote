@@ -45,10 +45,36 @@ public class AuthService {
 
     }
 
+    public String join(UserForm userForm) {
+
+        String inputUser = userForm.getUser();
+        String inputPassword = userForm.getPassword();
+
+        try {
+            duplicatedUserCheck(inputUser);
+        } catch (IllegalStateException e) {
+            System.out.println(e.getMessage());
+            return "deny";
+        } finally {
+        }
+
+        userRepository.createUser(inputUser, inputPassword);
+
+        return "create";
+
+    }
+
     private void existedUserCheck(String inputUser) {
         Optional<User> result = userRepository.findByUser(inputUser);
         if (result.isEmpty()) {
             throw new IllegalStateException("That isn't our user...!");
+        }
+    }
+
+    private void duplicatedUserCheck(String inputUser) {
+        Optional<User> result = userRepository.findByUser(inputUser);
+        if (result.isPresent()) {
+            throw new IllegalStateException("Username can't be duplicated on exsited member's...!");
         }
     }
 

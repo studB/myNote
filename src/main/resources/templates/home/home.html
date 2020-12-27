@@ -16,7 +16,7 @@
                     <th colspan="2">User Authentication</th>
                     <tr>
                         <td>
-                            <label for="username">User</label>
+                            <label for="user">User</label>
                         </td> 
                         <td>
                             <input type="text" id="user" name="user">
@@ -36,5 +36,8 @@
             <button type="submit" form="authform">Auth</button>
             <span th:if="${check_result == 'deny'}">Please check your Login Info</span>
         </div>
+        <form action ="/join" method="GET">
+            <button type="submit">Create User</button>
+        </form>
     </body>
 </html>
